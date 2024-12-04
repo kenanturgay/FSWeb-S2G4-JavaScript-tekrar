@@ -40,6 +40,8 @@ function KareninAlani(kenaruzunlugu) {
   return kenaruzunlugu * kenaruzunlugu;
 }
 
+console.log("Karenin alanı: ", KareninAlani(2));
+
 /* (Oto test yok) Yukarıdaki KareninAlani fonksiyonunu kenar uzunluğu = 10 vererek aşağıda çalıştırıp, sonucu konsolda gözlemleyin (console.log)  */
 
 /* GÖREV 1:  
@@ -68,7 +70,7 @@ function CemberinAlani(r, pi) {
   return pi * Math.pow(r, 2);
 }
 
-console.log(2);
+console.log("Çemberin alanı: ", CemberinAlani(15,pi));
 
 /* (Oto test yok) Yukarıdaki CemberinAlani fonksiyonunu yarıçap = 15 vererek aşağıda çalıştırıp, sonucu konsolda gözlemleyin (console.log)  */
 
@@ -91,7 +93,7 @@ console.log(2);
 
 /*  (oto test yok) sayilar dizisi içinde kaç adet sayı olduğunu konsola yazdırın */
 
-let ucetambolunenler,
+let ucetambolunenler=[],
   enkucuk,
   enbuyuk,
   ucebolunenlerintoplami,
@@ -100,26 +102,77 @@ let ucetambolunenler,
   tekraredensayilar;
 
 // 3a çözümü
+  
+  enbuyuk = sayilar[0];
+  enkucuk = sayilar[0];
+
+  for(let i=0; i<sayilar.length; i++){
+    if(sayilar[i]<enkucuk){
+      enkucuk=sayilar[i];
+    }
+    if(sayilar[i]>enbuyuk){
+      enbuyuk=sayilar[i];
+    }
+    
+  }
+
+  console.log("En küçük: ", enkucuk);
+  console.log("En büyük: ", enbuyuk);
 
 /* kodlar buraya */
 
 // 3b çözümü:
 
+sayilar.forEach((sayi) => {
+  if (sayi % 3 === 0) {
+    ucetambolunenler.push(sayi);
+    }
+
+
+  
+});
+
+console.log("Üçe tam bölünenler: ", ucetambolunenler);
+
 /* kodlar buraya */
 
 // 3c çözümü:
+
+ucebolunenlerintoplami = ucetambolunenler.reduce((toplam, sayi)=> toplam+sayi,0);
+
+console.log("3 e bölünenler toplamı: ", ucebolunenlerintoplami);
 
 /* kodlar buraya */
 
 // 3d çözümü
 
+besyuzdenkucuksayilar=sayilar.filter((sayi)=>sayi<500);
+
+console.log("500 den küçük sayılar: ", besyuzdenkucuksayilar);
+
+
 /* kodlar buraya */
 
 // 3e çözümü
 
+siralisayilar = besyuzdenkucuksayilar.sort((a,b)=>a-b);
+
+console.log("500 den küçük sayıların sıralaması: " , siralisayilar);
+
 /* kodlar buraya */
 
 // 3f çözümü
+
+const tekrarlar  = {};
+
+sayilar.forEach((sayi) => {
+  if (tekrarlar[sayi]) {
+    tekrarlar[sayi] += 1;
+    } else
+    tekrarlar[sayi] = 1;
+    });
+console.log("Tekrar eden sayılar: ", tekrarlar);
+
 
 /* kodlar buraya */
 
